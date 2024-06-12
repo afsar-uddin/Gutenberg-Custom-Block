@@ -262,7 +262,28 @@ registerBlockType('my-custom/accordion', {
 
         return (
             <div className="accordion-block">
+                <div className="accordion" id="accordionExample">
                 {items.map((item, index) => (
+                    <div key={index} className="accordion-item">
+                        <h2 className="accordion-header">
+                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded={index === 0 ? true : false} aria-controls={`collapse${index}`}>
+                                <RichText.Content tagName="h3" value={item.title} />
+                            </button>
+                        </h2>
+                        <div id={`collapse${index}`} className={index === 0 ? "accordion-collapse collapse show" : "accordion-collapse collapse"} data-bs-parent="#accordionExample">
+                            <div className="accordion-body">
+                                <RichText.Content tagName="div" value={item.content} />
+                                <div className='accordion-image'>
+                                    {item.imageUrl && (
+                                        <img src={item.imageUrl} alt={item.imageAlt} style={{ width: '100%' }} />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+                </div>
+                {/* {items.map((item, index) => (
                     <div key={index} className="accordion-item">
                         <div className="accordion-title">
                             <RichText.Content tagName="h3" value={item.title} />
@@ -276,7 +297,7 @@ registerBlockType('my-custom/accordion', {
                             )}
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
         );
     },

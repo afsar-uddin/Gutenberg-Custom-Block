@@ -430,20 +430,34 @@ __webpack_require__.r(__webpack_exports__);
     } = attributes;
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "accordion-block"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "accordion",
+      id: "accordionExample"
     }, items.map((item, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
       className: "accordion-item"
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "accordion-title"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
+      className: "accordion-header"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: "accordion-button",
+      type: "button",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": `#collapse${index}`,
+      "aria-expanded": index === 0 ? true : false,
+      "aria-controls": `collapse${index}`
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "h3",
       value: item.title
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "accordion-content"
+    }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      id: `collapse${index}`,
+      className: index === 0 ? "accordion-collapse collapse show" : "accordion-collapse collapse",
+      "data-bs-parent": "#accordionExample"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "accordion-body"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText.Content, {
       tagName: "div",
       value: item.content
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "accordion-image"
     }, item.imageUrl && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: item.imageUrl,
@@ -451,7 +465,7 @@ __webpack_require__.r(__webpack_exports__);
       style: {
         width: '100%'
       }
-    })))));
+    }))))))));
   }
 });
 })();
